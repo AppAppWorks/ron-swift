@@ -26,6 +26,12 @@ let package = Package(
         .library(
             name: "RonApi",
             targets: ["RonApi"]),
+        .library(
+            name: "RonCore-xx",
+            targets: ["RonCore-xx"]),
+        .library(
+            name: "RonRdt-xx",
+            targets: ["RonRdt-xx"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -67,5 +73,17 @@ let package = Package(
             name: "RonApiTests",
             dependencies: ["RonApi"],
             resources: [.process("Resources")]),
+        .target(
+            name: "RonCore-xx",
+            dependencies: []),
+        .testTarget(
+            name: "RonCore-xxTests",
+            dependencies: ["RonCore-xx"]),
+        .target(
+            name: "RonRdt-xx",
+            dependencies: ["RonCore-xx",]),
+        .testTarget(
+            name: "RonRdt-xxTests",
+            dependencies: ["RonRdt-xx",]),
     ]
 )
